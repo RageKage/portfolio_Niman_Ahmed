@@ -1,0 +1,10 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.router-link-exact-active.active {
+    @apply text-white underline font-semibold font-melodrama;
+}
+

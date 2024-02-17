@@ -1,0 +1,17 @@
+export function useNavigation() {
+  const navLinks = {
+    home: {
+      name: "Home",
+      path: "/",
+    },
+
+    projects: {
+      name: "Projects",
+      path: "/projects",
+    },
+  };
+
+  return {
+    navLinks,
+  };
+}
