@@ -154,17 +154,6 @@
           </div>
         </div>
       </section>
-      <section>
-        <div
-          class="flex items-center justify-center text-iron-300 font-zodiak space-x-4"
-        >
-          <router-link
-            to="/projects"
-            class="bg-copperfield-500 text-iron-300 px-4 py-2 rounded-md transition duration-300 ease-in-out"
-            >Projects</router-link
-          >
-        </div>
-      </section>
     </div>
   </div>
 </template>

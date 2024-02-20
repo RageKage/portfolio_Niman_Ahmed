@@ -17,32 +17,40 @@
         </p>
       </div>
     </section>
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         <!-- Projects -->
-        <div class="shadow-lg" v-for="project in projects" :key="project.id">
-          <div class="p-6">
-            <h3 class="text-2xl font-bold pb-3 font-melodrama">
-              {{ project.name }}
-            </h3>
-            <p class="mb-4">
-              {{ project.description }}
-            </p>
-            <div class="flex justify-between">
+        <div
+          class="shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          v-for="project in projects"
+          :key="project.id"
+        >
+          <div class="p-8 flex flex-col justify-between h-full">
+            <div>
+              <h3 class="text-2xl font-bold pb-4 font-melodrama text-iron-300">
+                {{ project.name }}
+              </h3>
+              <p class="mb-6 text-iron-400">
+                {{ project.description }}
+              </p>
+            </div>
+            <div class="flex justify-between items-center">
               <a
                 target="_blank"
-                class="text-danube-500 hover:underline"
+                class="text-danube-500 hover:text-danube-600 hover:underline flex items-center gap-2"
                 v-if="project.liveDemoLink"
                 :href="project.liveDemoLink"
-                >View Live</a
               >
+                View Live
+              </a>
               <a
                 target="_blank"
-                class="text-danube-500 hover:underline "
-                v-if="project.liveDemoLink"
+                class="text-danube-500 hover:text-danube-600 hover:underline flex items-center gap-2"
+                v-if="project.githubLink"
                 :href="project.githubLink"
-                >View Source</a
               >
+                View Source
+              </a>
             </div>
           </div>
         </div>

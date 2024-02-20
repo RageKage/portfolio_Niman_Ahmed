@@ -7,11 +7,11 @@
         class="flex justify-center md:justify-start px-4 text-center md:text-left m-4 md:m-0"
       >
         <div class="space-y-6">
-          <h1 class="font-bold text-5xl text-iron-800 font-zodiak">
+          <h1 class="font-bold text-5xl text-iron-800 font-zodiak" id="myName">
             Hello, I'm
             <span class="text-iron-600 font-melodrama">Niman</span>
           </h1>
-          <p class="text-iron-700 font-zodiak text-base">
+          <p class="text-iron-700 font-zodiak text-base" id="intro">
             I'm a programmer from Minneapolis. Skilled in
             <span
               class="font-semibold underline decoration-iron-600 decoration-2"
@@ -23,7 +23,7 @@
             >, and
             <span
               class="font-semibold underline decoration-iron-500 decoration-2"
-              >Vue 3 </span
+              >Vue 3</span
             >. Always eager to learn, innovate, and contribute to the coding
             community.
           </p>
@@ -54,17 +54,53 @@
           always eager to make a positive impact and ensuring that every
           interaction leaves a lasting, favorable impression.
         </p>
-        <a
-          href="/resume"
-          class="text-md  text-danube-600 hover:text-danube-800 font-semibold transition duration-300 ease-in-out"
-        >
-          Resume
-        </a>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
+import { onMounted } from "vue";
 import photo_me from "@/assets/my_Photo.jpg";
+import { gsap } from "gsap";
+import SplitType from "split-type";
+
+onMounted(() => {
+  // myname split aniamtion
+  let nameSplit = new SplitType("#myName", {
+    types: "lines, words, chars",
+    tagName: "span",
+  });
+
+  // intro split animation
+  const intro = new SplitType("#intro", {
+    types: "lines, words, chars",
+    tagName: "span",
+  });
+
+  // timeline for the split animation
+  const tl = gsap.timeline();
+
+  // animation for the name split
+  tl.from(nameSplit.chars, {
+    y: "100%",
+    opacity: 0,
+    duration: 0.5,
+    ease: "back.out(1.7)",
+    stagger: 0.2,
+  });
+
+  // animation for the intro split
+  tl.from(
+    intro.chars,
+    {
+      duration: 0.5,
+      opacity: 0,
+      y: 20,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
+    },
+    "-=0.25"
+  );
+});
 </script>

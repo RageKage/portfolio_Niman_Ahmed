@@ -4,6 +4,8 @@ const Home = () => import("../components/Home.vue");
 const Resume = () => import("../views/Resume.vue");
 const Projects = () => import("../views/Projects.vue");
 
+
+
 const routes = [
   {
     path: "/",
